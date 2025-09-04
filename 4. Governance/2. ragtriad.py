@@ -1,7 +1,6 @@
 from langchain_ibm import ChatWatsonx
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader
 from langchain.tools.retriever import create_retriever_tool
 import os 
 from dotenv import load_dotenv
@@ -9,12 +8,12 @@ from dotenv import load_dotenv
 from ibm_watsonx_gov.entities.state import EvaluationState
 from ibm_watsonx_gov.evaluators.agentic_evaluator import AgenticEvaluator
 from langchain_core.prompts import ChatPromptTemplate
-from langgraph.config import RunnableConfig
 from langgraph.graph import START, END, StateGraph
 import uuid
 import json 
 
-from langchain_ollama import OllamaEmbeddings
+from langchain_ibm import ChatWatsonx, WatsonxEmbeddings
+
 from langchain_chroma import Chroma
 from colorama import Fore 
 import uuid
@@ -23,13 +22,14 @@ import uuid
 
 load_dotenv()
 
-embeddings = OllamaEmbeddings(
-    model="all-minilm:latest",
+embeddings = WatsonxEmbeddings(
+    model_id="sentence-transformers/all-minilm-l6-v2",
+    project_id=os.getenv("WATSONX_PROJECT_ID"),
 )
 
 vector_store = Chroma(
     collection_name="credit_card",
-    persist_directory="./data/credit_card",
+    persist_directory="./credit_card",
     embedding_function=embeddings,
 )
 
@@ -60,7 +60,7 @@ def retrieval_node(state: AppState):
 
 @evaluator.evaluate_faithfulness()
 @evaluator.evaluate_answer_relevance()
-def generate_node(state: AppState, config: RunnableConfig):
+def generate_node(state: AppState):
     generate_prompt = ChatPromptTemplate.from_template(
         "Answer the following question based on the given context:\n"
         "Context: {context}\n"
