@@ -85,6 +85,10 @@ export TRULENS_API_KEY="your-trulens-api-key"  # Optional for advanced features
    Query ───────────────────────────────────────────────────────► Response
 ```
 
+**Test prompts for evaluation**:
+1. `"What's the limit on overseas assistance?"`
+2. `"What is the definition of epidemic?"`
+
 **Evaluation metrics**:
 - **Context Relevance Score**: 0.0 - 1.0 (higher is better)
 - **Groundedness Score**: 0.0 - 1.0 (higher is better)  
