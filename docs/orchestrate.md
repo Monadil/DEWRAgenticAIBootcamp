@@ -2,13 +2,14 @@
 layout: default
 title: "Chapter 1: Orchestrate"
 nav_order: 2
+description: "Building no-code AI agents with Watsonx Orchestrate"
 ---
 
 # Chapter 1: Building Agents with Watsonx Orchestrate
 
 Welcome to the first chapter of our Watsonx Agentic AI course! This section introduces you to **no-code agent building** using Watsonx Orchestrate - perfect for business users and those new to AI agent development.
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 By the end of this chapter, you'll be able to:
 - Understand what Watsonx Orchestrate is and how it works
@@ -17,16 +18,7 @@ By the end of this chapter, you'll be able to:
 - Create agentic RAG (Retrieval Augmented Generation) solutions
 - Use external tools like Firecrawl for web scraping
 
-## 📹 Video Tutorial
-
-<div class="video-container">
-  <div class="video-placeholder">
-    📹 <strong>Video Tutorial Coming Soon!</strong><br>
-    <em>This video will walk you through the entire Orchestrate workflow step-by-step</em>
-  </div>
-</div>
-
-## 🚀 What is Watsonx Orchestrate?
+## What is Watsonx Orchestrate?
 
 Watsonx Orchestrate is IBM's no-code platform for building AI-powered agents and automating business processes. It allows you to:
 - Create conversational AI agents without programming
@@ -34,7 +26,7 @@ Watsonx Orchestrate is IBM's no-code platform for building AI-powered agents and
 - Build complex workflows using a visual interface
 - Deploy agents that can understand natural language and perform tasks
 
-## 🛠 Setup Instructions
+## Setup Instructions
 
 Before we begin, you'll need to set up your environment:
 
@@ -54,7 +46,7 @@ Before we begin, you'll need to set up your environment:
    uv sync
    ```
 
-## 📚 Course Exercises
+## Course Exercises
 
 ### Exercise A: Basic Agent Interactions
 
@@ -102,12 +94,12 @@ Learn to integrate external tools for real-time data access:
 
 This exercise demonstrates how agents can interact with live web data to provide current information.
 
-## 🔗 Essential Resources
+## Essential Resources
 
-- [**Getting Started Tutorial**](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=getting-started-watsonx-orchestrate) - Official IBM documentation
-- [**Agent Development Kit (ADK)**](https://developer.watson-orchestrate.ibm.com/) - Deep dive into advanced development features
+- [Getting Started Tutorial](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=getting-started-watsonx-orchestrate) - Official IBM documentation
+- [Agent Development Kit (ADK)](https://developer.watson-orchestrate.ibm.com/) - Deep dive into advanced development features
 
-## 💡 Key Concepts
+## Key Concepts
 
 ### No-Code Development
 - **Visual Interface**: Build agents using drag-and-drop components
@@ -124,7 +116,7 @@ This exercise demonstrates how agents can interact with live web data to provide
 - **Real-time Data**: Access current information from live sources
 - **Workflow Automation**: Chain multiple tools together for complex tasks
 
-## 🎯 Practice Exercises
+## Practice Exercises
 
 1. **Create Your First Agent**:
    - Build a simple Q&A agent for your organization
@@ -138,15 +130,15 @@ This exercise demonstrates how agents can interact with live web data to provide
    - Connect to a web API or database
    - Create workflows that combine multiple data sources
 
-## ➡️ Next Steps
+## Next Steps
 
 Once you've mastered no-code agent building with Orchestrate, you're ready to move on to:
 
-**[Chapter 2: Langflow →](langflow.html)** - Learn visual, low-code agent development
+**[Chapter 2: Langflow](langflow)** - Learn visual, low-code agent development
 
 ---
 
-## 📁 Related Files
+## Related Files
 
 All the code and resources for this chapter can be found in:
 ```
@@ -154,24 +146,3 @@ All the code and resources for this chapter can be found in:
 ├── README.md                    # Original documentation
 └── Digital Service Standard.pdf # Knowledge base document
 ```
-
-<style>
-.video-container {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.video-placeholder {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 40px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.video-placeholder strong {
-  font-size: 1.2em;
-  display: block;
-  margin-bottom: 10px;
-}
-</style> 

@@ -2,13 +2,14 @@
 layout: default
 title: "Chapter 2: Langflow"
 nav_order: 3
+description: "Visual agent development with low-code workflows"
 ---
 
 # Chapter 2: Visual Agent Development with Langflow
 
 Welcome to Chapter 2! Here we'll explore **low-code visual agent development** using Langflow - the perfect middle ground between no-code simplicity and full programming control.
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 By the end of this chapter, you'll be able to:
 - Set up and navigate the Langflow visual interface
@@ -17,16 +18,7 @@ By the end of this chapter, you'll be able to:
 - Connect multiple AI models and data sources
 - Deploy and test your visual agent workflows
 
-## 📹 Video Tutorial
-
-<div class="video-container">
-  <div class="video-placeholder">
-    📹 <strong>Video Tutorial Coming Soon!</strong><br>
-    <em>Watch as we build a complete agent workflow visually in Langflow</em>
-  </div>
-</div>
-
-## 🚀 What is Langflow?
+## What is Langflow?
 
 Langflow is a visual framework for building multi-agent and RAG applications. It provides:
 - **Drag-and-drop interface** for creating AI workflows
@@ -35,7 +27,7 @@ Langflow is a visual framework for building multi-agent and RAG applications. It
 - **Easy deployment** of your completed workflows
 - **Integration** with multiple LLM providers and vector databases
 
-## 🛠 Setup Instructions
+## Setup Instructions
 
 Getting started with Langflow is straightforward:
 
@@ -64,7 +56,7 @@ langflow run
 
 Then open your browser to `http://localhost:7860`
 
-## 📚 Course Exercises
+## Course Exercises
 
 ### Exercise 1: Your First Flow
 
@@ -123,7 +115,7 @@ Then open your browser to `http://localhost:7860`
 - **Analysis Agent**: Processes and analyzes data
 - **Summary Agent**: Creates final output
 
-## 💡 Key Concepts
+## Key Concepts
 
 ### Visual Programming
 - **Component-based**: Each box represents a specific function
@@ -156,7 +148,7 @@ Then open your browser to `http://localhost:7860`
 - **Memory**: Maintain conversation context
 - **Documents**: Handle various file types
 
-## 🔧 Advanced Features
+## Advanced Features
 
 ### Custom Components
 - Build your own components using Python
@@ -173,7 +165,7 @@ Then open your browser to `http://localhost:7860`
 - Embed in web applications
 - Export to various formats
 
-## 🎯 Practice Projects
+## Practice Projects
 
 ### Project 1: Customer Support Bot
 Create a customer support agent that:
@@ -193,22 +185,22 @@ Develop an agent that:
 - Performs analysis based on user questions
 - Generates visualizations and insights
 
-## 🔍 Debugging Tips
+## Debugging Tips
 
 1. **Use the Debug Panel**: Monitor data flow between components
 2. **Check Component Logs**: See what's happening inside each component
 3. **Test Incrementally**: Build and test one component at a time
 4. **Use Print Components**: Add debugging outputs to see intermediate results
 
-## ➡️ Next Steps
+## Next Steps
 
 Ready to take your skills to the next level? Move on to:
 
-**[Chapter 3: Langgraph →](langgraph.html)** - Master pro-code agent development with Python
+**[Chapter 3: Langgraph](langgraph)** - Master pro-code agent development with Python
 
 ---
 
-## 📁 Related Files
+## Related Files
 
 Explore the Langflow resources:
 ```
@@ -217,29 +209,8 @@ Explore the Langflow resources:
 └── Screenshot 2025-09-03...png    # Interface example
 ```
 
-## 🔗 Additional Resources
+## Additional Resources
 
-- [**Langflow Documentation**](https://docs.langflow.org/) - Official documentation
-- [**Community Flows**](https://github.com/langflow-ai/langflow) - Example workflows from the community
-- [**DataStax Langflow**](https://astra.datastax.com/langflow) - Hosted Langflow service
-
-<style>
-.video-container {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.video-placeholder {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  color: white;
-  padding: 40px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.video-placeholder strong {
-  font-size: 1.2em;
-  display: block;
-  margin-bottom: 10px;
-}
-</style> 
+- [Langflow Documentation](https://docs.langflow.org/) - Official documentation
+- [Community Flows](https://github.com/langflow-ai/langflow) - Example workflows from the community
+- [DataStax Langflow](https://astra.datastax.com/langflow) - Hosted Langflow service

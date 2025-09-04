@@ -2,13 +2,14 @@
 layout: default
 title: "Chapter 3: Langgraph"
 nav_order: 4
+description: "Pro-code agent development with Python and graph architectures"
 ---
 
 # Chapter 3: Pro-Code Agent Development with Langgraph
 
 Welcome to the most powerful chapter of our course! Here we dive into **pro-code agent development** using Langgraph - giving you complete control over sophisticated AI agent architectures.
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 By the end of this chapter, you'll be able to:
 - Understand Langgraph's graph-based agent architecture
@@ -18,16 +19,7 @@ By the end of this chapter, you'll be able to:
 - Implement search and web scraping capabilities
 - Build complex multi-agent workflows with state management
 
-## 📹 Video Tutorial
-
-<div class="video-container">
-  <div class="video-placeholder">
-    📹 <strong>Video Tutorial Coming Soon!</strong><br>
-    <em>Deep dive into building production-ready agents with Python and Langgraph</em>
-  </div>
-</div>
-
-## 🚀 What is Langgraph?
+## What is Langgraph?
 
 Langgraph is a library for building stateful, multi-actor applications with LLMs. Key features include:
 - **Graph-based architecture** for complex agent workflows
@@ -37,7 +29,7 @@ Langgraph is a library for building stateful, multi-actor applications with LLMs
 - **Streaming support** for real-time interactions
 - **Built-in persistence** for production deployments
 
-## 🛠 Setup Instructions
+## Setup Instructions
 
 Before diving into the exercises, ensure your environment is ready:
 
@@ -53,7 +45,7 @@ export OPENAI_API_KEY="your-openai-api-key"
 export GITHUB_TOKEN="your-github-token"  # For GitHub integration
 ```
 
-## 📚 Progressive Learning Path
+## Progressive Learning Path
 
 ### 0. Basic Agent (`0. basic.py`)
 
@@ -154,5 +146,169 @@ python "0. basic.py"
 - Content extraction and summarization
 - Technical assessment capabilities
 
-**Test with**:
+## Key Concepts
+
+### Graph-Based Architecture
+
+Langgraph uses a directed graph structure where:
+- **Nodes** represent different agent functions
+- **Edges** define the flow between functions
+- **State** is passed and modified between nodes
+- **Conditional routing** enables dynamic workflow paths
+
+### State Management
+
+```python
+from typing import TypedDict, List
+
+class AgentState(TypedDict):
+    messages: List[str]
+    user_input: str
+    agent_response: str
+    context: dict
 ```
+
+### Tool Integration
+
+```python
+from langchain.tools import tool
+
+@tool
+def github_search(query: str) -> str:
+    """Search GitHub repositories"""
+    # Implementation here
+    return results
+```
+
+### Memory and Persistence
+
+- **Checkpointing**: Automatic state saving
+- **Thread management**: Separate conversation threads
+- **Retrieval**: Access historical context
+- **State updates**: Modify conversation memory
+
+## Advanced Features
+
+### Multi-Agent Coordination
+- **Agent communication**: Pass messages between agents
+- **Shared state**: Common memory across agents
+- **Role specialization**: Different agents for different tasks
+- **Workflow orchestration**: Complex multi-step processes
+
+### Streaming and Real-time
+- **Response streaming**: Real-time output generation
+- **Event handling**: React to user inputs immediately
+- **Async processing**: Non-blocking operations
+- **Progress tracking**: Monitor long-running tasks
+
+### Production Deployment
+- **API endpoints**: Deploy as REST APIs
+- **Scaling**: Handle multiple concurrent users
+- **Monitoring**: Track performance and usage
+- **Error handling**: Robust error recovery
+
+## Code Examples
+
+### Basic Agent Structure
+```python
+from langgraph.graph import StateGraph
+from langgraph.checkpoint.sqlite import SqliteSaver
+
+# Define state
+class State(TypedDict):
+    messages: List[str]
+
+# Create graph
+workflow = StateGraph(State)
+
+# Add nodes
+workflow.add_node("agent", agent_node)
+workflow.add_node("tools", tool_node)
+
+# Add edges
+workflow.add_edge("agent", "tools")
+workflow.add_edge("tools", "agent")
+
+# Compile
+app = workflow.compile(checkpointer=SqliteSaver("memory.db"))
+```
+
+### Tool Usage
+```python
+from langchain_core.tools import tool
+
+@tool
+def web_search(query: str) -> str:
+    """Search the web for information"""
+    # Implementation
+    return search_results
+
+tools = [web_search]
+agent = create_agent(llm, tools)
+```
+
+## Practice Projects
+
+### Project 1: Research Assistant
+Build an agent that:
+- Searches multiple sources
+- Synthesizes information
+- Maintains research context
+- Generates reports
+
+### Project 2: Code Review Agent
+Create an agent that:
+- Analyzes code repositories
+- Identifies issues and improvements
+- Suggests optimizations
+- Tracks changes over time
+
+### Project 3: Multi-Agent Customer Service
+Develop a system with:
+- Intake agent for initial questions
+- Specialist agents for different domains
+- Escalation protocols
+- Shared customer context
+
+## Debugging and Development
+
+### Common Issues
+1. **State management**: Ensure proper state updates
+2. **Tool integration**: Verify tool function signatures
+3. **Memory persistence**: Check checkpointing configuration
+4. **Error handling**: Implement robust error recovery
+
+### Development Tips
+1. **Start simple**: Begin with basic functionality
+2. **Test incrementally**: Add one feature at a time
+3. **Monitor state**: Use logging to track state changes
+4. **Use type hints**: Enable better IDE support and debugging
+
+## Next Steps
+
+Ready to deploy your agents responsibly? Move on to:
+
+**[Chapter 4: Governance](governance)** - Learn AI governance, evaluation, and monitoring
+
+---
+
+## Related Files
+
+Explore the Langgraph examples:
+```
+3. Langgraph/
+├── 0. basic.py              # Basic agent structure
+├── 1. memory.py             # Memory and persistence
+├── 2. tool.py               # Tool integration
+├── 3. structured.py         # Structured outputs
+├── 4. search.py             # Web search capabilities
+├── 5. endpointreview.py     # Endpoint analysis
+├── requirements.txt         # Dependencies
+└── README.md               # Setup instructions
+```
+
+## Additional Resources
+
+- [Langgraph Documentation](https://langchain-ai.github.io/langgraph/) - Official documentation
+- [Python SDK Reference](https://python.langchain.com/docs/langgraph) - API reference
+- [Example Applications](https://github.com/langchain-ai/langgraph/tree/main/examples) - Community examples

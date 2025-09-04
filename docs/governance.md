@@ -2,13 +2,14 @@
 layout: default
 title: "Chapter 4: Governance"
 nav_order: 5
+description: "AI governance, evaluation, and monitoring for production deployments"
 ---
 
 # Chapter 4: AI Governance and Evaluation
 
 Welcome to the final chapter! Here we explore **AI governance, evaluation, and monitoring** - essential skills for deploying AI agents responsibly in production environments.
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 By the end of this chapter, you'll be able to:
 - Implement syntactic and semantic evaluation for AI agents
@@ -18,16 +19,7 @@ By the end of this chapter, you'll be able to:
 - Visualize agent performance metrics and traces
 - Establish responsible AI practices for production systems
 
-## 📹 Video Tutorial
-
-<div class="video-container">
-  <div class="video-placeholder">
-    📹 <strong>Video Tutorial Coming Soon!</strong><br>
-    <em>Learn to evaluate, monitor, and govern AI agents in production</em>
-  </div>
-</div>
-
-## 🚀 Why AI Governance Matters
+## Why AI Governance Matters
 
 AI governance is critical for:
 - **Trust and reliability** in AI systems
@@ -37,7 +29,7 @@ AI governance is critical for:
 - **Ethical AI deployment** with bias detection and mitigation
 - **Transparency and explainability** for stakeholders
 
-## 🛠 Setup Instructions
+## Setup Instructions
 
 Navigate to the Governance directory and set up the evaluation environment:
 
@@ -52,7 +44,7 @@ export OPENAI_API_KEY="your-openai-api-key"
 export TRULENS_API_KEY="your-trulens-api-key"  # Optional for advanced features
 ```
 
-## 📚 Evaluation Framework
+## Evaluation Framework
 
 ### 1. Syntactic Evaluation (`1. syntactic.py`)
 
@@ -90,7 +82,7 @@ export TRULENS_API_KEY="your-trulens-api-key"  # Optional for advanced features
 └─────────────────┘    └─────────────────┘    └─────────────────┘
       ▲                         ▲                         ▲
       │                         │                         │
-   Query ──────────────────────────────────────────► Response
+   Query ───────────────────────────────────────────────────────► Response
 ```
 
 **Evaluation metrics**:
@@ -113,7 +105,7 @@ export TRULENS_API_KEY="your-trulens-api-key"  # Optional for advanced features
 - `rag_graph.png`: RAG-specific evaluation charts
 - Interactive Plotly dashboards
 
-## 💡 Key Governance Concepts
+## Key Governance Concepts
 
 ### Evaluation Metrics
 
@@ -180,7 +172,7 @@ Traces are stored in:
 - Model improvement recommendations
 - Compliance reporting
 
-## 🔧 Implementation Examples
+## Implementation Examples
 
 ### Setting up RAG Evaluation
 ```python
@@ -242,7 +234,7 @@ def evaluate_agent_performance(agent, test_queries):
     return results
 ```
 
-## 🎯 Governance Best Practices
+## Governance Best Practices
 
 ### 1. Evaluation Strategy
 - **Multi-dimensional evaluation**: Don't rely on a single metric
@@ -268,7 +260,7 @@ def evaluate_agent_performance(agent, test_queries):
 - **Root cause analysis**: Investigate and learn from failures
 - **Communication plans**: Keep stakeholders informed during incidents
 
-## 🔍 Evaluation Tools and Frameworks
+## Evaluation Tools and Frameworks
 
 ### TruLens
 - Comprehensive LLM application evaluation
@@ -286,7 +278,7 @@ def evaluate_agent_performance(agent, test_queries):
 - **Grafana**: Real-time dashboards
 - **Custom solutions**: Tailored monitoring systems
 
-## 📊 Sample Evaluation Results
+## Sample Evaluation Results
 
 Based on the trace files in the repository:
 
@@ -301,7 +293,7 @@ Based on the trace files in the repository:
 2. **Context retrieval failures** in 5.5% of cases
 3. **Hallucination instances** in financial data queries
 
-## 🚀 Production Deployment Checklist
+## Production Deployment Checklist
 
 - [ ] **Evaluation Framework**: Comprehensive testing suite established
 - [ ] **Monitoring Setup**: Real-time performance tracking active
@@ -314,14 +306,14 @@ Based on the trace files in the repository:
 - [ ] **Documentation**: Complete system documentation
 - [ ] **Training**: Team trained on monitoring and response
 
-## 🎓 Course Completion
+## Course Completion
 
 Congratulations! You've completed all four chapters of the Watsonx Agentic AI course:
 
-✅ **Chapter 1**: No-code agents with Orchestrate  
-✅ **Chapter 2**: Low-code visual development with Langflow  
-✅ **Chapter 3**: Pro-code development with Langgraph  
-✅ **Chapter 4**: AI governance and evaluation  
+- **Chapter 1**: No-code agents with Orchestrate  
+- **Chapter 2**: Low-code visual development with Langflow  
+- **Chapter 3**: Pro-code development with Langgraph  
+- **Chapter 4**: AI governance and evaluation  
 
 ### Next Steps
 - Apply these concepts to your own projects
@@ -331,7 +323,7 @@ Congratulations! You've completed all four chapters of the Watsonx Agentic AI co
 
 ---
 
-## 📁 Related Files
+## Related Files
 
 Governance implementation files:
 ```
@@ -349,29 +341,8 @@ Governance implementation files:
     └── experiment_traces_*.log
 ```
 
-## 🔗 Additional Resources
+## Additional Resources
 
-- [**TruLens Documentation**](https://trulens.org/) - Comprehensive evaluation framework
-- [**Responsible AI Guidelines**](https://www.ibm.com/artificial-intelligence/ethics) - IBM's responsible AI principles
-- [**AI Governance Framework**](https://www.nist.gov/itl/ai-risk-management-framework) - NIST AI Risk Management Framework
-
-<style>
-.video-container {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.video-placeholder {
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-  color: #333;
-  padding: 40px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.video-placeholder strong {
-  font-size: 1.2em;
-  display: block;
-  margin-bottom: 10px;
-}
-</style> 
+- [TruLens Documentation](https://trulens.org/) - Comprehensive evaluation framework
+- [Responsible AI Guidelines](https://www.ibm.com/artificial-intelligence/ethics) - IBM's responsible AI principles
+- [AI Governance Framework](https://www.nist.gov/itl/ai-risk-management-framework) - NIST AI Risk Management Framework
