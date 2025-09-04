@@ -1,0 +1,265 @@
+[
+  {
+    "name": "tool_call_syntactic_accuracy",
+    "method": "syntactic_check",
+    "provider": "ibm",
+    "value": 0.5,
+    "group": "tool_call_quality",
+    "min": 0,
+    "max": 1,
+    "count": 2,
+    "node_name": "chatbot",
+    "applies_to": "node",
+    "individual_results": [
+      {
+        "name": "tool_call_syntactic_accuracy",
+        "method": "syntactic_check",
+        "provider": "ibm",
+        "value": 0,
+        "additional_info": {
+          "explanations": "LLM did not make any tool calls"
+        },
+        "group": "tool_call_quality",
+        "thresholds": [
+          {
+            "type": "upper_limit",
+            "value": 0.7
+          }
+        ],
+        "applies_to": "node",
+        "interaction_id": "4+cGgsIJTKxin2++2CwHzQ==",
+        "conversation_id": "abc123",
+        "node_name": "chatbot",
+        "execution_count": 1,
+        "execution_order": 3
+      },
+      {
+        "name": "tool_call_syntactic_accuracy",
+        "method": "syntactic_check",
+        "provider": "ibm",
+        "value": 1,
+        "additional_info": {
+          "explanations": []
+        },
+        "group": "tool_call_quality",
+        "thresholds": [
+          {
+            "type": "upper_limit",
+            "value": 0.7
+          }
+        ],
+        "applies_to": "node",
+        "interaction_id": "4+cGgsIJTKxin2++2CwHzQ==",
+        "conversation_id": "abc123",
+        "node_name": "chatbot",
+        "execution_count": 2,
+        "execution_order": 1
+      }
+    ]
+  },
+  {
+    "name": "latency",
+    "value": 0.803781,
+    "group": "performance",
+    "min": 0.484556,
+    "max": 1.123006,
+    "count": 2,
+    "node_name": "chatbot",
+    "applies_to": "node",
+    "individual_results": [
+      {
+        "name": "latency",
+        "value": 0.484556,
+        "group": "performance",
+        "applies_to": "node",
+        "interaction_id": "4+cGgsIJTKxin2++2CwHzQ==",
+        "conversation_id": "abc123",
+        "node_name": "chatbot",
+        "execution_count": 1,
+        "execution_order": 3
+      },
+      {
+        "name": "latency",
+        "value": 1.123006,
+        "group": "performance",
+        "applies_to": "node",
+        "interaction_id": "4+cGgsIJTKxin2++2CwHzQ==",
+        "conversation_id": "abc123",
+        "node_name": "chatbot",
+        "execution_count": 2,
+        "execution_order": 1
+      }
+    ]
+  },
+  {
+    "name": "latency",
+    "value": 0.653458,
+    "group": "performance",
+    "min": 0.653458,
+    "max": 0.653458,
+    "count": 1,
+    "node_name": "tools",
+    "applies_to": "node",
+    "individual_results": [
+      {
+        "name": "latency",
+        "value": 0.653458,
+        "group": "performance",
+        "applies_to": "node",
+        "interaction_id": "4+cGgsIJTKxin2++2CwHzQ==",
+        "conversation_id": "abc123",
+        "node_name": "tools",
+        "execution_count": 1,
+        "execution_order": 2
+      }
+    ]
+  },
+  {
+    "name": "duration",
+    "value": 2.426985,
+    "group": "performance",
+    "min": 2.426985,
+    "max": 2.426985,
+    "count": 1,
+    "applies_to": "interaction",
+    "individual_results": [
+      {
+        "name": "duration",
+        "value": 2.426985,
+        "group": "performance",
+        "applies_to": "interaction",
+        "interaction_id": "4+cGgsIJTKxin2++2CwHzQ==",
+        "conversation_id": "abc123"
+      }
+    ]
+  },
+  {
+    "name": "cost",
+    "value": 0,
+    "group": "usage",
+    "min": 0,
+    "max": 0,
+    "count": 1,
+    "applies_to": "interaction",
+    "individual_results": [
+      {
+        "name": "cost",
+        "value": 0,
+        "group": "usage",
+        "applies_to": "interaction",
+        "interaction_id": "4+cGgsIJTKxin2++2CwHzQ==",
+        "conversation_id": "abc123"
+      }
+    ]
+  },
+  {
+    "name": "input_token_count",
+    "value": 632,
+    "group": "usage",
+    "min": 632,
+    "max": 632,
+    "count": 1,
+    "applies_to": "interaction",
+    "individual_results": [
+      {
+        "name": "input_token_count",
+        "value": 632,
+        "group": "usage",
+        "applies_to": "interaction",
+        "interaction_id": "4+cGgsIJTKxin2++2CwHzQ==",
+        "conversation_id": "abc123"
+      }
+    ]
+  },
+  {
+    "name": "output_token_count",
+    "value": 33,
+    "group": "usage",
+    "min": 33,
+    "max": 33,
+    "count": 1,
+    "applies_to": "interaction",
+    "individual_results": [
+      {
+        "name": "output_token_count",
+        "value": 33,
+        "group": "usage",
+        "applies_to": "interaction",
+        "interaction_id": "4+cGgsIJTKxin2++2CwHzQ==",
+        "conversation_id": "abc123"
+      }
+    ]
+  },
+  {
+    "name": "duration",
+    "value": 2.426985,
+    "group": "performance",
+    "min": 2.426985,
+    "max": 2.426985,
+    "count": 1,
+    "applies_to": "conversation",
+    "individual_results": [
+      {
+        "name": "duration",
+        "value": 2.426985,
+        "group": "performance",
+        "applies_to": "conversation",
+        "conversation_id": "abc123"
+      }
+    ]
+  },
+  {
+    "name": "cost",
+    "value": 0,
+    "group": "usage",
+    "min": 0,
+    "max": 0,
+    "count": 1,
+    "applies_to": "conversation",
+    "individual_results": [
+      {
+        "name": "cost",
+        "value": 0,
+        "group": "usage",
+        "applies_to": "conversation",
+        "conversation_id": "abc123"
+      }
+    ]
+  },
+  {
+    "name": "input_token_count",
+    "value": 632,
+    "group": "usage",
+    "min": 632,
+    "max": 632,
+    "count": 1,
+    "applies_to": "conversation",
+    "individual_results": [
+      {
+        "name": "input_token_count",
+        "value": 632,
+        "group": "usage",
+        "applies_to": "conversation",
+        "conversation_id": "abc123"
+      }
+    ]
+  },
+  {
+    "name": "output_token_count",
+    "value": 33,
+    "group": "usage",
+    "min": 33,
+    "max": 33,
+    "count": 1,
+    "applies_to": "conversation",
+    "individual_results": [
+      {
+        "name": "output_token_count",
+        "value": 33,
+        "group": "usage",
+        "applies_to": "conversation",
+        "conversation_id": "abc123"
+      }
+    ]
+  }
+]
