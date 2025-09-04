@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Chapter 4: Governance"
+nav_order: 5
 ---
 
 # Chapter 4: AI Governance and Evaluation

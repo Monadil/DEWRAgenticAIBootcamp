@@ -1,38 +1,39 @@
 title: "Watsonx Agentic AI Course"
 description: "A comprehensive course on building AI agents with Watsonx - from no-code to pro-code solutions"
-baseurl: "/watsonxagenticcc"
+baseurl: "/"
 url: "https://nicknochnack.github.io"
 
 # Build settings
 markdown: kramdown
+theme: just-the-docs
+
+# Just the Docs theme configuration
+color_scheme: nil
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 2
+  preview_words_before: 3
+  preview_words_after: 3
+  tokenizer_separator: /[\s/]+/
+  rel_url: true
+  button: false
+
+# Navigation structure
+nav_sort: case_insensitive
+
+# Aux links for the upper right navigation
+aux_links:
+  "Course on GitHub":
+    - "//github.com/nicknochnack/6-08-2025-DTA"
+
+# Makes Aux links open in a new tab. Default is false
+aux_links_new_tab: true
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-
-# Navigation
-header_pages:
-  - index.md
-  - orchestrate.md
-  - langflow.md
-  - langgraph.md
-  - governance.md
-
-# Course settings
-course:
-  sections:
-    - title: "1. Orchestrate"
-      description: "No-code agent building with Watsonx Orchestrate"
-      page: orchestrate
-    - title: "2. Langflow"
-      description: "Low-code visual agent development"
-      page: langflow
-    - title: "3. Langgraph"
-      description: "Pro-code agent development with Python"
-      page: langgraph
-    - title: "4. Governance"
-      description: "AI governance and evaluation strategies"
-      page: governance
 
 # Exclude from processing
 exclude:

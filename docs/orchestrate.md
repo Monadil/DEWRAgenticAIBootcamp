@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Chapter 1: Orchestrate"
+nav_order: 2
 ---
 
 # Chapter 1: Building Agents with Watsonx Orchestrate

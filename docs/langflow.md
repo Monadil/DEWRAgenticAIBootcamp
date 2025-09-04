@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Chapter 2: Langflow"
+nav_order: 3
 ---
 
 # Chapter 2: Visual Agent Development with Langflow

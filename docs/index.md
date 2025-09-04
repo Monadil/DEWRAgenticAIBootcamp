@@ -1,6 +1,9 @@
 ---
-layout: default
 title: Home
+layout: default
+nav_order: 1
+description: "A comprehensive course on building AI agents with Watsonx - from no-code to pro-code solutions"
+permalink: /
 ---
 
 # Nick's Mega Ultra Fun Watsonx Agentic Crash Course

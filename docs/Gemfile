@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
-# Use github-pages gem to ensure compatibility with GitHub Pages environment
-gem "github-pages", group: :jekyll_plugins
+# Use just-the-docs theme for clean documentation
+gem "just-the-docs"
+gem "jekyll", "~> 4.3.2"
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
