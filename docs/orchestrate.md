@@ -36,6 +36,8 @@ Before we begin, you'll need to set up your environment:
 
 ### Exercise A: Basic Agent Interactions
 
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117273003?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Orchestrate1-Basic"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 Start with these fundamental questions to understand your agent's capabilities:
 
 1. **"What is the 7 layer OSI model?"**
@@ -52,6 +54,8 @@ Start with these fundamental questions to understand your agent's capabilities:
 
 ### Exercise B: Adding Agentic RAG
 
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117273043?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Orchestrate2-RAG"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 Now we'll enhance our agent with domain-specific knowledge:
 
 **Knowledge Base Description:**
@@ -63,6 +67,8 @@ Now we'll enhance our agent with domain-specific knowledge:
 - "What makes a digital service inclusive and accessible?"
 
 ### Exercise C: External Tool Integration
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117273380?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Orchestrate3-MCP"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 Learn to integrate external tools for real-time data access:
 
