@@ -13,3 +13,4 @@ archive
 data
 videos
 .env
+.DS_Store

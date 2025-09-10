@@ -1,5 +1,5 @@
 ---
-title: "Watsonx Agentic AI Course"
+title: "👀🐝Ⓜ️ watsonx Agentic AI Course"
 layout: default
 nav_order: 1
 description: "A comprehensive course on building AI agents with Watsonx - from no-code to pro-code solutions"
