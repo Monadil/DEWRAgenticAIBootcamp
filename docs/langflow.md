@@ -62,7 +62,7 @@ Then open your browser to `http://localhost:7860`
 
 ### Exercise A: Basic Prompting
 
-**Objective**: Create a simple chatbot to establish the groundwork for agent development
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117305073?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Langflow1-Basic"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 First up, we'll create a simple chatbot with no tools - this establishes the groundwork for more complex agents.
 
@@ -92,7 +92,7 @@ You are a helpful agent designed to assist with user queries.
 
 ### Exercise B: Creating an Agent with Tool Nodes
 
-**Objective**: Convert the basic LLM into an intelligent agent by adding tool capabilities
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117304558?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Langflow2-Arxiv"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 Now we enhance our basic chatbot by converting it into an agent with tool access. We'll add the Arxiv tool for researching the latest research papers.
 
@@ -116,7 +116,7 @@ Now we enhance our basic chatbot by converting it into an agent with tool access
 
 ### Exercise C: Post Processing with Prompt Engineering
 
-**Objective**: Implement advanced prompt engineering for output evaluation and web scraping
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117303705?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Langflow3-PostProc"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 This exercise demonstrates sophisticated prompt engineering for post-processing and integrating web scraping capabilities.
 
