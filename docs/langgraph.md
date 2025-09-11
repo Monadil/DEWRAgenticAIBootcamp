@@ -129,35 +129,6 @@ python "0. basic.py"
 - **Validation**: Automatic data validation
 - **Serialization**: Easy conversion to JSON/other formats
 
-### 4. Search Capabilities (`4. search.py`)
-
-**Objective**: Add web search and information retrieval
-
-**What you'll learn**:
-- Web search integration
-- Information synthesis from multiple sources
-- Search result processing and ranking
-
-**Test prompts**:
-```
-"What are the six states of the investment oversight framework from digital.gov.au?"
-"Give me a summary of the AGA from here https://architecture.digital.gov.au/purpose"
-```
-
-**Features**:
-- **Web scraping**: Extract content from URLs
-- **Search integration**: Query search engines
-- **Content synthesis**: Combine information from multiple sources
-
-### 5. Endpoint Review (`5. endpointreview.py`)
-
-**Objective**: Analyze and review web endpoints
-
-**What you'll learn**:
-- Automated website analysis
-- Content extraction and summarization
-- Technical assessment capabilities
-
 ## Key Concepts
 
 ### Graph-Based Architecture
