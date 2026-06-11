@@ -1,7 +1,8 @@
-# Nicks Mega Ultra Fun Watsonx Agentic Crash Course
-Right, so you're probably here because I've given you this secret squirrel link. Well, we're about to have some fun. This repo covers everything you need to know about crushing it with agents and watsonx. Enough blabbing, here's what we got on the menu. 
+# DEWR Agentic AI Bootcamp
+Welcome! This repo covers everything you need to know about building agents with IBM watsonx - taken from no-code through to pro-code, and grounded in real workforce intelligence use cases built on official Australian and UK government data.
 
-<a href="https://nicknochnack.github.io/WatsonxAgenticCrashCourse/"><img src="https://i.imgur.com/5Wl61Mp.png"/></a>
+<!-- BANNER PLACEHOLDER: re-add course banner image linking to the site -->
+**[👉 Open the course site](https://monadil.github.io/DEWRAgenticCrashCourse/)**
 
 ## Course Overview
 
@@ -10,7 +11,7 @@ This course is designed to give you hands-on experience with building AI agents 
 ## What You'll Learn
 
 By the end of this course, you'll be able to:
-- Build no-code agents using Watsonx Orchestrate
+- Build no-code agents using watsonx Orchestrate
 - Create visual agent workflows with Langflow
 - Develop sophisticated agents with Langgraph and Python
 - Implement proper AI governance and evaluation strategies
@@ -20,14 +21,14 @@ By the end of this course, you'll be able to:
 This course is organized into four progressive chapters:
 
 ### Chapter 1: Orchestrate
-**No-code agent building with Watsonx Orchestrate**
+**No-code agent building with watsonx Orchestrate**
 
-Perfect for business users and those new to AI agent development. Learn to build powerful agents without writing any code.
+Perfect for business users and those new to AI agent development. Build a workforce intelligence agent that answers skills shortage questions from official Jobs and Skills Australia data - without writing any code.
 
 ### Chapter 2: Langflow
 **Visual agent development with drag-and-drop workflows**
 
-The perfect middle ground between no-code simplicity and full programming control. Build complex agents using a visual interface.
+The perfect middle ground between no-code simplicity and full programming control. Build an agent that compares Australian and UK skills priorities live, with a second LLM judging the quality of its answers.
 
 ### Chapter 3: Langgraph
 **Pro-code agent development with Python**
@@ -43,14 +44,14 @@ Essential skills for deploying AI agents responsibly in production environments.
 
 Before you begin, make sure you have:
 - A basic understanding of AI concepts
-- Access to Watsonx services (instructions provided in each section)
+- Access to watsonx services (instructions provided in each section)
 - Python 3.11+ installed for the Langgraph section
 - Git for cloning the repository
 
 ## Repository Structure
 
 ```
-WatsonxAgenticCrashCourse/
+DEWRAgenticCrashCourse/
 ├── 1. Orchestrate/     # No-code agent building
 ├── 2. Langflow/        # Low-code visual development
 ├── 3. Langgraph/       # Pro-code Python development
@@ -59,6 +60,6 @@ WatsonxAgenticCrashCourse/
 ```
 
 # Who, When, Why?
-👨🏾‍💻 Author: Nick Renotte <br />
-📅 Version: 1.x<br />
+👨🏾‍💻 Author: IBM Client Engineering <br />
+📅 Version: 2.x<br />
 📜 License: This project is licensed under the MIT License </br>

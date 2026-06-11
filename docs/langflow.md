@@ -7,17 +7,17 @@ description: "Visual agent development with low-code workflows"
 
 # Chapter 2: Visual Agent Development with Langflow
 
-Welcome to Chapter 2! Here we'll explore **low-code visual agent development** using Langflow - the perfect middle ground between no-code simplicity and full programming control.
+Welcome to Chapter 2! Here we'll explore **low-code visual agent development** using Langflow - the perfect middle ground between no-code simplicity and full programming control. You'll build an agent that compares Australian and UK skills priorities live from official government sources, then have a second LLM judge the quality of the comparison.
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117079707?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Intro-Langflow"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<!-- VIDEO PLACEHOLDER: Intro-Langflow — re-insert video embed here -->
 
 ## Learning Objectives
 
 By the end of this chapter, you'll be able to:
 - Set up and navigate the Langflow visual interface
 - Build basic chatbots using IBM watsonx.ai models
-- Create agentic workflows with tool integration
-- Implement post-processing with advanced prompt engineering
+- Create agentic workflows with Firecrawl tool integration
+- Implement the LLM-as-judge pattern for automated quality evaluation
 - Deploy and test your visual agent workflows
 
 ## What is Langflow?
@@ -58,15 +58,46 @@ langflow run
 
 Then open your browser to `http://localhost:7860`
 
+## The Use Case: AU vs UK Skills Comparison
+
+By the end of the lab your flow will look like this:
+
+```
+Chat Input
+    │
+    ▼
+Agent (watsonx.ai / Mistral-Large)
+    ├── Firecrawl AU ──► scrapes JSA skills shortage page
+    └── Firecrawl UK ──► scrapes UK priority skills page
+    │
+    ▼ Agent's comparison response
+Evaluation Prompt
+    │
+    ▼
+Second LLM (watsonx.ai / Mistral-Large)
+    │
+    ▼
+Chat Output
+```
+
+| Firecrawl | Country | URL |
+|---|---|---|
+| Firecrawl 1 | 🇦🇺 Australia | `https://www.jobsandskills.gov.au/publications/towards-national-jobs-and-skills-roadmap-summary/current-skills-shortages` |
+| Firecrawl 2 | 🇬🇧 UK | `https://www.gov.uk/government/publications/assessment-of-priority-skills-to-2030/assessment-of-priority-skills-to-2030` |
+
+**What each page contains:**
+- **AU — JSA Current Skills Shortages:** shortage rates by occupation group, the four shortage types (Longer Training Gap / Shorter Training Gap / Suitability Gap / Retention Gap), Top 20 occupations in demand, regional barriers, and wage analysis
+- **UK — Assessment of Priority Skills to 2030:** employment in priority occupations growing from 5.9M to 6.7M by 2030, largest demand in Care Workers (+90,000) and Programmers/Software Developers (+87,000), ten priority sectors, and qualification-level breakdowns
+
 ## Course Exercises
 
 ### Exercise A: Basic Prompting
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117305073?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Langflow1-Basic"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<!-- VIDEO PLACEHOLDER: Langflow1-Basic — re-insert video embed here -->
 
 First up, we'll create a simple chatbot with no tools - this establishes the groundwork for more complex agents.
 
-![Exercise A - Basic Prompting Workflow](https://i.imgur.com/DBlvM6A.png)
+![Exercise A - Basic Prompting Workflow](assets/images/langflow-exercise-a.png)
 *Basic prompting workflow showing Chat Input → IBM watsonx.ai → Chat Output*
 
 **System Prompt**:
@@ -86,68 +117,92 @@ You are a helpful agent designed to assist with user queries.
 4. Connect to Chat Output component
 
 **Test Prompts**:
-- "How do LLMs work?"
-- "Why is trust in AI important?"
-- "How can we detect hallucination?"
+- "What is a skills shortage and why can it persist even when unemployment is low?"
+- "Which occupations are hardest to fill in Australia right now?"
+- "How does the UK government plan for future skills needs?"
 
-### Exercise B: Creating an Agent with Tool Nodes
+**Observation point:** the second and third prompts need current data the model simply doesn't have - the answers will be generic or out of date. That's the motivation for adding tools in Exercise B.
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117304558?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Langflow2-Arxiv"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+### Exercise B: Creating an Agent with Firecrawl Tools
 
-Now we enhance our basic chatbot by converting it into an agent with tool access. We'll add the Arxiv tool for researching the latest research papers.
+<!-- VIDEO PLACEHOLDER: Langflow2-Firecrawl — re-insert video embed here -->
+<!-- SCREENSHOT PLACEHOLDER: assets/images/langflow-exercise-b.png — Agent node with two Firecrawl tool nodes (AU + UK) -->
 
-![Exercise B - Agent with Tools](https://i.imgur.com/xRJe30m.png)
-*Enhanced workflow with Agent node orchestrating IBM watsonx.ai and Arxiv tool*
+Now we enhance our basic chatbot by converting it into an agent with live web access. We'll add **two Firecrawl components in Tool Mode** - one pointed at the Australian skills shortage page, one at the UK priority skills page.
 
 **Additional Nodes Required**:
-- **Arxiv** - Tool for academic paper research
-- **Agent** - Orchestrates tool usage and responses
+- **Agent** - Orchestrates tool usage and responses (uses IBM watsonx.ai as the underlying model)
+- **Firecrawl x2** - Set to Tool Mode, one per country
+
+**Agent Instructions** (paste into the Agent's instructions field):
+```
+You have a Firecrawl tool. When asked to compare Australian and UK
+skills data, always scrape both of these pages:
+
+Australia: https://www.jobsandskills.gov.au/publications/towards-national-jobs-and-skills-roadmap-summary/current-skills-shortages
+
+UK: https://www.gov.uk/government/publications/assessment-of-priority-skills-to-2030/assessment-of-priority-skills-to-2030
+
+Scrape both before answering. Always reference which country
+each finding comes from.
+```
 
 **Workflow Enhancement**:
 1. Replace the direct IBM watsonx.ai connection with an Agent node
-2. Connect the Arxiv tool to the Agent
-3. Configure the Agent to use IBM watsonx.ai as the underlying model
+2. Add two Firecrawl components, enable Tool Mode, and connect both to the Agent
+3. Paste the agent instructions above
 4. Test the enhanced workflow
 
-**Test Prompts**:
-- "What are the trending papers in machine learning governance?"
-- "Is there any new research on LLM hallucinations?"
-- "Find recent papers about AI safety and alignment"
-
-### Exercise C: Post Processing with Prompt Engineering
-
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117303705?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Langflow3-PostProc"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-
-This exercise demonstrates sophisticated prompt engineering for post-processing and integrating web scraping capabilities.
-
-
-![Exercise C - Multi Tool Setup](https://i.imgur.com/UkLWEDP.png)
-*Multi-tool workflow with Arxiv, Agent, FirecrawlScrapeAPI, and post-processing*
-
-
-![Exercise C - Output Parsing](https://i.imgur.com/5DLyYqI.png)
-*Output parsing and evaluation workflow with Prompt component for quality assessment*
-
-**Engineered Prompt**:
+**Test Prompt (Query 1 — Shared Priorities)**:
 ```
-Review the following input and rate the output on a scale of 1-10 on how much clarity it provides.
+Which occupations or sectors appear as high priority in BOTH countries?
+```
+
+**Expected output:** the agent should find the overlap - Care, Digital, Construction, and Engineering appear as priorities in both countries, with each finding attributed to its source.
+
+### Exercise C: LLM-as-Judge Evaluation
+
+<!-- VIDEO PLACEHOLDER: Langflow3-Evaluation — re-insert video embed here -->
+<!-- SCREENSHOT PLACEHOLDER: assets/images/langflow-exercise-c-flow.png — full flow with Prompt node and second LLM -->
+<!-- SCREENSHOT PLACEHOLDER: assets/images/langflow-exercise-c-output.png — evaluation output in the Playground -->
+
+This exercise adds automated quality assessment: a second LLM judges how good the agent's comparison was. This is the **LLM-as-judge pattern**, widely used in production AI systems.
+
+**Evaluation Prompt** (in a Prompt Template node):
+```
+Rate this comparison 1–10 on how clearly it explains the
+difference between AU and UK.
+
+Give the score, one thing done well, and one thing that
+would make it a 10.
+
 {chat_input}
 ```
 
+> **Key clarification:** `{chat_input}` in the Prompt Template receives the **Agent's response**, NOT the user's original question. The second LLM never sees the user's question - it only judges the quality of the Agent's output.
+
 **Additional Nodes Required**:
-- **FirecrawlScrapeAPI** - Set to tool node for web scraping
-- **Prompt** - For advanced prompt engineering and post-processing
+- **Prompt** - Holds the evaluation template
+- **IBM watsonx.ai (second instance)** - The judge LLM
 
 **Workflow Enhancement**:
-1. Add FirecrawlScrapeAPI as a tool node
-2. Connect it to your existing agent
-3. Add a Prompt component for post-processing evaluation
-4. Configure the evaluation prompt template
+1. Connect the Agent's response output to the Prompt node's `{chat_input}` variable
+2. Connect the Prompt node to a second IBM watsonx.ai component
+3. Connect the second LLM to Chat Output
+4. Re-run Query 1 and note the score (typically 7-8/10)
 
-**Test Prompt**:
+**Test Prompt (Query 2 — Care and Digital Deep Dive)**:
 ```
-Summarise this page - https://www.ato.gov.au/about-ato/commitments-and-reporting/information-and-privacy/ato-ai-transparency-statement
+Both Australia and the UK are projecting major growth in Care and
+Digital roles. Compare how each country is describing the challenge
+and what their skills system needs to deliver.
 ```
+
+**Expected output:** the agent contrasts the Australian framing (retention and shortage types) with the UK framing (volume projections to 2030). The evaluator typically scores this 8-9/10 - higher than Query 1.
+
+**Teaching moment:** the score should improve between Query 1 and Query 2. A more focused question produces a better comparison - demonstrating that prompt quality directly affects agent output quality, and that you can measure it.
+
+**Stretch goal:** give the judge a persona. Change the evaluation prompt to open with *"You are a DEWR policy officer reviewing this briefing for a team meeting."* and re-run both queries - watch how the feedback becomes more concrete and domain-relevant.
 
 ## Key Concepts
 
@@ -159,14 +214,14 @@ Summarise this page - https://www.ato.gov.au/about-ato/commitments-and-reporting
 - **Direct responses**: No external tool access
 
 #### Level 2: Agentic Behavior
-- **Tool integration**: Access to external resources
+- **Tool integration**: Live web access via Firecrawl
 - **Decision making**: Agent chooses when to use tools
-- **Research capabilities**: Can gather current information
+- **Source attribution**: Findings referenced to the country they came from
 
-#### Level 3: Advanced Processing
-- **Post-processing**: Evaluate and refine outputs
-- **Web scraping**: Access live web content
-- **Quality assessment**: Rate and improve responses
+#### Level 3: Automated Evaluation
+- **LLM-as-judge**: A second LLM scores the first one's output
+- **Quality measurement**: Scores vary with question quality
+- **Prompt engineering payoff**: Better questions earn measurably better scores
 
 ### Component Deep Dive
 
@@ -177,8 +232,7 @@ Summarise this page - https://www.ato.gov.au/about-ato/commitments-and-reporting
 - **Prompt**: Advanced prompt engineering and templating
 
 #### Tool Components
-- **Arxiv**: Academic research paper search
-- **FirecrawlScrapeAPI**: Web content extraction
+- **Firecrawl**: Web content extraction (used in Tool Mode)
 - **Custom Tools**: Extensible for specific needs
 
 #### Processing Components
@@ -196,55 +250,49 @@ Summarise this page - https://www.ato.gov.au/about-ato/commitments-and-reporting
 
 ## Advanced Workflows
 
-### Multi-Tool Research Agent
-Combine multiple tools for comprehensive research:
-1. **Arxiv** for academic papers
-2. **FirecrawlScrapeAPI** for web content
-3. **Agent** orchestrates tool selection
-4. **Post-processing** evaluates and synthesizes results
+### Multi-Source Comparison Agent
+Combine multiple live sources for comparative analysis:
+1. **Firecrawl AU** for Australian skills shortage data
+2. **Firecrawl UK** for UK priority skills data
+3. **Agent** orchestrates scraping and synthesis
+4. **Judge LLM** scores the quality of the comparison
 
 ### Quality Assessment Pipeline
 Implement automated quality control:
-1. **Initial response** generation
-2. **Clarity evaluation** using prompt engineering
-3. **Iterative improvement** based on scores
+1. **Initial response** generation by the agent
+2. **Evaluation** by a second LLM using a scoring rubric
+3. **Iterative improvement** based on the judge's feedback
 4. **Final output** with quality metrics
 
 ## Practice Projects
 
-### Project 1: Academic Research Assistant
-Build an agent that:
-- Searches academic papers via Arxiv
-- Scrapes relevant web content
-- Synthesizes findings with clarity scoring
-- Provides comprehensive research summaries
+### Project 1: Occupation Deep Dive
+Build a flow that answers:
+- *"Tell me everything about the Electrician occupation in Australia right now"*
+- **Evaluation focus:** would a policy officer use this in a team meeting?
 
-### Project 2: Government Policy Analyzer
-Create a workflow that:
-- Scrapes government policy documents
-- Evaluates content clarity and accessibility
-- Provides simplified summaries
-- Rates information quality
+### Project 2: Career Transition Finder
+Create a workflow that answers:
+- *"What pathways work for a Retail Manager wanting to transition?"*
+- **Evaluation focus:** is this realistic without a university degree?
 
-### Project 3: AI Governance Monitor
-Develop an agent for:
-- Tracking AI policy developments
-- Analyzing transparency statements
-- Monitoring research trends
-- Providing governance insights
+### Project 3: The 2030 Forecast
+Develop an agent that answers:
+- *"Paint a picture of both countries' workforce by 2030"*
+- **Evaluation focus:** does it feel navigable, not terrifying?
 
 ## Debugging and Optimization
 
 ### Visual Debugging
 1. **Component inspection**: Check data flow between nodes
 2. **Message tracing**: Follow conversation paths
-3. **Tool monitoring**: Verify tool calls and responses
+3. **Tool monitoring**: Verify both Firecrawl calls fired and returned content
 4. **Performance metrics**: Monitor response times and quality
 
 ### Common Issues
-- **Tool connectivity**: Ensure API keys are properly configured
+- **Tool connectivity**: Ensure the Firecrawl API key is configured on both components
 - **Prompt formatting**: Check template syntax and variables
-- **Agent routing**: Verify tool selection logic
+- **Agent routing**: Verify the agent scrapes both pages before answering
 - **Output formatting**: Ensure consistent response structure
 
 ## Next Steps
@@ -260,9 +308,10 @@ Ready to take your skills to the next level with full programming control? Move 
 Explore the Langflow resources:
 ```
 2. Langflow/
-├── README.md                      # Setup instructions
-└── Screenshot 2025-09-03...png    # Interface example
+├── README.md          # Lab reference guide
+└── Exercise A.png     # Basic prompting flow screenshot
 ```
+*(Screenshots for Exercises B and C are being re-captured for the new AU/UK flow.)*
 
 ## Additional Resources
 

@@ -1,16 +1,16 @@
 ---
-title: "Watsonx Agentic AI Course"
+title: "DEWR Agentic AI Bootcamp"
 layout: default
 nav_order: 1
-description: "A comprehensive course on building AI agents with Watsonx - from no-code to pro-code solutions"
+description: "A hands-on bootcamp on building AI agents with IBM watsonx - from no-code to pro-code solutions"
 permalink: /
 ---
 
-# Nick's Mega Ultra Fun Watsonx Agentic Crash Course
+# DEWR Agentic AI Bootcamp
 
-Welcome to the ultimate crash course on building AI agents with Watsonx! This comprehensive course will take you from zero to hero in the world of agentic AI, covering three different approaches to building agents.
+Welcome to the DEWR Agentic AI Bootcamp! This hands-on course takes you from zero to hero in the world of agentic AI, covering three different approaches to building agents - all grounded in real workforce intelligence use cases built on official Australian and UK government data.
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117068619?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Intro"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<!-- VIDEO PLACEHOLDER: Intro — re-insert video embed here -->
 
 ## Course Overview
 
@@ -19,7 +19,7 @@ This course is designed to give you hands-on experience with building AI agents 
 ## What You'll Learn
 
 By the end of this course, you'll be able to:
-- Build no-code agents using Watsonx Orchestrate
+- Build no-code agents using watsonx Orchestrate
 - Create visual agent workflows with Langflow
 - Develop sophisticated agents with Langgraph and Python
 - Implement proper AI governance and evaluation strategies
@@ -29,14 +29,14 @@ By the end of this course, you'll be able to:
 This course is organized into four progressive chapters:
 
 ### [Chapter 1: Orchestrate](orchestrate)
-**No-code agent building with Watsonx Orchestrate**
+**No-code agent building with watsonx Orchestrate**
 
-Perfect for business users and those new to AI agent development. Learn to build powerful agents without writing any code.
+Perfect for business users and those new to AI agent development. Build a workforce intelligence agent that answers skills shortage questions from official Jobs and Skills Australia data - without writing any code.
 
-### [Chapter 2: Langflow](langflow) 
+### [Chapter 2: Langflow](langflow)
 **Visual agent development with drag-and-drop workflows**
 
-The perfect middle ground between no-code simplicity and full programming control. Build complex agents using a visual interface.
+The perfect middle ground between no-code simplicity and full programming control. Build an agent that compares Australian and UK skills priorities live, with a second LLM judging the quality of its answers.
 
 ### [Chapter 3: Langgraph](langgraph)
 **Pro-code agent development with Python**
@@ -52,14 +52,14 @@ Essential skills for deploying AI agents responsibly in production environments.
 
 Before you begin, make sure you have:
 - A basic understanding of AI concepts
-- Access to Watsonx services (instructions provided in each section)
+- Access to watsonx services (instructions provided in each section)
 - Python 3.11+ installed for the Langgraph section
 - Git for cloning the repository
 
 ## Repository Structure
 
 ```
-WatsonxAgenticCrashCourse/
+DEWRAgenticCrashCourse/
 ├── 1. Orchestrate/     # No-code agent building
 ├── 2. Langflow/        # Low-code visual development
 ├── 3. Langgraph/       # Pro-code Python development
@@ -69,9 +69,9 @@ WatsonxAgenticCrashCourse/
 
 ## Getting Started
 
-1. **Clone the repository**: 
+1. **Clone the repository**:
    ```bash
-   git clone https://github.com/nicknochnack/WatsonxAgenticCrashCourse . 
+   git clone https://github.com/Monadil/DEWRAgenticCrashCourse .
    ```
 
 2. **Install dependencies**:
@@ -95,8 +95,8 @@ If you have questions or need help:
 
 ---
 
-## About the Instructor
+## About
 
-**Nick Renotte** - AI Engineer and Content Creator  
-**Version**: 1.x  
+**IBM Client Engineering**
+**Version**: 2.x
 **License**: MIT License
