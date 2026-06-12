@@ -12,11 +12,11 @@ Lab 1 of the DEWR Agentic AI Bootcamp. This lab shows how quickly you can build 
 > Note: Orchestrate's Firecrawl skill uses `/scrape` only — one page per call, no multi-page crawling.
 
 # A. No Tools
-What is a skills shortage, and how do governments typically measure one?
+Which major occupation groups have persistent shortages and what percentage of persistent shortages does each represent?
 
-What is the difference between a labour shortage and a skills gap?
+What percentage and number of occupations were in national shortage in 2025?
 
-How could an ageing population change Australia's labour market over the next decade?
+What percentage of jobseekers would need to change the type of jobs they apply for according to the 2024–25 MI?
 
 # B. Adding in Agentic RAG
 Upload `2025 OSL Key Findings Report.pdf` as a knowledge base.
@@ -46,7 +46,7 @@ Always state which source each finding comes from.
 ```
 
 Web-only query:
-- What are the four types of skills shortages and which occupations fall under each category?
+- According to https://www.jobsandskills.gov.au/publications/towards-national-jobs-and-skills-roadmap-summary/current-skills-shortages What are the four types of skills shortages and which occupations fall under each category?
 
 # D. Combined Queries (both sources required)
 - Which occupations have been in persistent shortage since 2021, and are they still appearing as shortage occupations in the 2025 OSL?
