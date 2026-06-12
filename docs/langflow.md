@@ -126,7 +126,8 @@ You are a helpful agent designed to assist with user queries.
 ### Exercise B: Creating an Agent with Firecrawl Tools
 
 <!-- VIDEO PLACEHOLDER: Langflow2-Firecrawl — re-insert video embed here -->
-<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/langflow-exercise-b.png, then uncomment the line below:
+*📷 Screenshot to be added — Agent node with two Firecrawl tool nodes (AU + UK).*
+<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/langflow-exercise-b.png, then delete the note above and uncomment:
 ![Agent node with two Firecrawl tool nodes (AU + UK)](assets/images/langflow-exercise-b.png)
 -->
 
@@ -165,10 +166,9 @@ Which occupations or sectors appear as high priority in BOTH countries?
 ### Exercise C: LLM-as-Judge Evaluation
 
 <!-- VIDEO PLACEHOLDER: Langflow3-Evaluation — re-insert video embed here -->
-<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/langflow-exercise-c-flow.png, then uncomment the line below:
+*📷 Screenshots to be added — full flow with Prompt node and second LLM, and the evaluation output in the Playground.*
+<!-- SCREENSHOT PLACEHOLDER — save your captures as docs/assets/images/langflow-exercise-c-flow.png and docs/assets/images/langflow-exercise-c-output.png, then delete the note above and uncomment:
 ![Full flow with Prompt node and second LLM](assets/images/langflow-exercise-c-flow.png)
--->
-<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/langflow-exercise-c-output.png, then uncomment the line below:
 ![Evaluation output in the Playground](assets/images/langflow-exercise-c-output.png)
 -->
 

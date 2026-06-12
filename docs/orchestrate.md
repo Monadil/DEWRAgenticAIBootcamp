@@ -74,7 +74,8 @@ Create an agent with no tools or knowledge attached, and start with these warm-u
 ### Exercise B: Adding Agentic RAG
 
 <!-- VIDEO PLACEHOLDER: Orchestrate2-RAG — re-insert video embed here -->
-<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/orchestrate-exercise-b-kb.png, then uncomment the line below:
+*📷 Screenshot to be added — knowledge base configuration in Orchestrate.*
+<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/orchestrate-exercise-b-kb.png, then delete the note above and uncomment:
 ![Knowledge base configuration in Orchestrate](assets/images/orchestrate-exercise-b-kb.png)
 -->
 
@@ -100,7 +101,8 @@ ratings in 2025?
 ### Exercise C: External Tool Integration
 
 <!-- VIDEO PLACEHOLDER: Orchestrate3-MCP — re-insert video embed here -->
-<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/orchestrate-exercise-c-firecrawl.png, then uncomment the line below:
+*📷 Screenshot to be added — Firecrawl tool added to the agent.*
+<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/orchestrate-exercise-c-firecrawl.png, then delete the note above and uncomment:
 ![Firecrawl tool added to the agent](assets/images/orchestrate-exercise-c-firecrawl.png)
 -->
 
