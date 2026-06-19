@@ -156,7 +156,7 @@ each finding comes from.
 
 **Test Prompt (Query 1 — Shared Priorities)**:
 ```
-Which occupations or sectors appear as high priority in BOTH countries?
+What are the top 3 occupations or sectors that appear as high priority in BOTH countries?
 ```
 
 **Expected output:** the agent should find the overlap - Care, Digital, Construction, and Engineering appear as priorities in both countries, with each finding attributed to its source.
