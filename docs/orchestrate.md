@@ -233,6 +233,7 @@ The Writing Agent grounds its formatting in `Ministerial Brief Format.docx`, whi
 6. **Background** — 300 words or fewer
 7. **Contact officer** — name, title, phone, and date at the end
 8. **Action type** — "For Noting" or "For Decision/Approval"
+9. **Suggested talking points** — 3–4 short, data-grounded, politically neutral points the Minister can use in the meeting
 
 > This format is an **illustrative teaching stand-in**, not official Australian Government policy.
 
@@ -281,6 +282,12 @@ KEY POINTS:
 BACKGROUND: ...
 
 FINANCIAL IMPLICATIONS: No direct financial implications.
+
+SUGGESTED TALKING POINTS:
+• The Government recognises healthcare workforce pressures, with 48% of
+  occupations in national shortage (JSA Occupation Shortage List 2025)
+• Retention — not only training — is central; it is the primary driver
+• Regional access is a focus: regional fill rates (62.9%) lag metro (69.7%)
 
 ACTION: For Noting
 

@@ -11,7 +11,7 @@ The Writing Agent grounds its formatting in these rules. The uploadable knowledg
 
 ---
 
-## The 8 rules
+## The brief rules
 
 ### Rule 1 — Purpose statement
 The PURPOSE must be a single sentence beginning with **"To inform"**, **"To advise"**, or **"To seek approval"**.
@@ -37,6 +37,9 @@ A contact officer must appear at the **end of the document** with a **name, titl
 
 ### Rule 8 — Action type
 The brief must state an action type: **"For Noting"** or **"For Decision/Approval"**.
+
+### Rule 9 — Suggested talking points
+A **SUGGESTED TALKING POINTS** section provides 3–4 short points the Minister can use in the meeting. Each must rest on a figure already in the brief, stay politically neutral, and avoid policy commitments.
 
 ---
 
