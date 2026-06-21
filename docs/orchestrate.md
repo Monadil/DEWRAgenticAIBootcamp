@@ -165,6 +165,150 @@ in 2025?
 
 **Teaching point:** the most powerful agent demos require two-source reasoning. Watch how the agent scrapes the webpage for shortage types and historical persistence, then cross-references the knowledge base for the latest 2025 ratings.
 
+---
+
+# Part 2: From Copilot to Agentic — The Ministerial Brief Agent
+
+Everything you built in Part 1 was a **copilot**: a capable assistant that answered when you asked. You grounded it in enterprise data with a knowledge base (Exercise B) and extended what it could do with a tool (Exercise C) — the two fundamentals of any useful agent. But *you* drove every step.
+
+Part 2 crosses the line into **agentic**. Instead of you prompting each step, a single trigger starts a system of three agents that plan and act across tools to complete the job — only handing back to a human at the final sign-off gate.
+
+## Copilot vs Agentic
+
+This is the core distinction to take away from today:
+
+| Copilot (Part 1) | Agentic (Part 2) |
+|---|---|
+| A human prompts each step | A trigger starts the whole process |
+| One tool per interaction | Multiple tools and agents in sequence |
+| AI suggests, the human acts | AI gathers data, drafts, and routes |
+| Human stays in the loop at every step | Human only reviews at a gate |
+| Runs when asked | Runs on a schedule or event |
+
+Put simply: **a copilot is an individual assistant; an agent reacts, reasons, and acts.** The knowledge base grounds the model in your enterprise data; a tool gives the model new capabilities; agentic design lets the model *use* those things autonomously to complete a job end to end.
+
+## The Use Case
+
+- **Persona:** Policy Analyst
+- **Trigger:** the Minister's office requests a brief
+- **Scenario:** *"Brief the Minister on the current state of the healthcare workforce shortage ahead of the meeting with the AMA (Australian Medical Association)."*
+- **Outcome:** a ministerial brief with cited statistics, produced autonomously in the Department's standard format, ready to route for sign-off.
+
+## The Three-Agent Architecture
+
+![Ministerial Brief Agent architecture](assets/images/multiagent-architecture.svg)
+
+| Agent | Role |
+|---|---|
+| **Orchestrator** | Decomposes the request and sequences the two sub-agents |
+| **Statistics Agent** | Calls the healthcare workforce tool and formats the metrics into citation-ready text |
+| **Writing Agent** | Drafts the brief in the Department's standard format, grounded in a knowledge base that defines that format |
+
+**Key design decision:** the brief format isn't hard-coded into the prompt — it lives in a **knowledge base document** the Writing Agent draws on. That keeps the prompt short and lets you change the house style by editing one document rather than re-engineering the agent. It's the same grounding principle you used in Exercise B (knowledge base) and Exercise C (tool), now combined in one autonomous flow.
+
+## What's Provided vs. What You'll Build
+
+This is a guided-assembly lab. The scaffolding is pre-built so you spend the hour wiring and running, not authoring from scratch:
+
+**Provided** (in `1. Orchestrate/Ministerial Brief Agent/`):
+- **`healthcare-workforce-openapi.yaml`** — an OpenAPI spec you import as the Statistics Agent's data tool
+- **`Ministerial Brief Format.docx`** — the brief format and rules, uploaded as the Writing Agent's knowledge base
+- **`Agent Prompts.md`** — the three agent prompts and descriptions, ready to paste
+
+**You'll build:** import the data tool, upload the format knowledge base, create the three agents, wire the orchestrator, and run the AMA scenario.
+
+### The healthcare data tool
+
+A single endpoint returns all healthcare roles with monthly employment numbers and a sector summary — for example: 48% of healthcare occupations in national shortage, Registered Nurses at 312,400 (down 1,200 on the month), retention gap as the primary driver, regional fill rates (62.9%) lagging metro (69.7%). All figures are illustrative mock data, clearly labelled, and easy to swap for a real ABS/JSA feed later. (A self-contained Python version, `healthcare_workforce_tool.py`, is included as a no-hosting fallback.)
+
+### The brief format (knowledge base)
+
+The Writing Agent grounds its formatting in `Ministerial Brief Format.docx`, which defines the required structure and rules:
+
+1. **Purpose** — one sentence starting with "To inform", "To advise", or "To seek approval"
+2. **Key points** — maximum 5 bullets
+3. **Citations** — every statistic cites source and period, e.g. "(JSA Occupation Shortage List 2025)"
+4. **Financial implications** — section required, even if "No direct financial implications"
+5. **Classification** — OFFICIAL or OFFICIAL: Sensitive marking at the top
+6. **Background** — 300 words or fewer
+7. **Contact officer** — name, title, phone, and date at the end
+8. **Action type** — "For Noting" or "For Decision/Approval"
+9. **Suggested talking points** — 3–4 short, data-grounded, politically neutral points the Minister can use in the meeting
+
+> This format is an **illustrative teaching stand-in**, not official Australian Government policy.
+
+## Build Steps (guided assembly)
+
+1. **Statistics Agent** — create the agent, import `healthcare-workforce-openapi.yaml` as its data tool, paste its prompt, and test that it returns the workforce figures as cited text.
+2. **Writing Agent** — create the agent, upload `Ministerial Brief Format.docx` as its knowledge base, and paste its prompt.
+3. **Orchestrator** — create the agent, connect it to the two sub-agents, and paste its prompt.
+
+All three prompts and descriptions are in `Agent Prompts.md`.
+
+## Run It: The AMA Scenario
+
+Trigger the Orchestrator with:
+
+```
+Brief the Minister on the current state of the healthcare workforce shortage
+ahead of the meeting with the AMA (Australian Medical Association).
+```
+
+Then watch the system work on its own: the Orchestrator calls the Statistics Agent (① data), then passes the figures to the Writing Agent (② draft), which formats the brief against the knowledge base and hands the finished brief back for sign-off. You triggered it once; the agents did the rest.
+
+> **Teaching note:** point out that no human prompted the individual steps. One request fanned out into a data lookup and a grounded draft, and came back as a finished brief. That hands-off run between the trigger and the sign-off gate is exactly what separates an agentic system from a copilot.
+
+## Example Output
+
+```
+OFFICIAL: Sensitive
+
+BRIEF TO THE MINISTER
+Employment and Workplace Relations
+
+SUBJECT: Healthcare workforce shortage — background for AMA meeting
+
+PURPOSE: To inform the Minister of current healthcare workforce conditions
+ahead of the meeting with the Australian Medical Association.
+
+KEY POINTS:
+• 48% of healthcare occupations are in national shortage
+  (JSA Occupation Shortage List 2025)
+• Registered Nurses most acute: 312,400 employed April 2026, down 1,200 from March
+• Retention gap is the primary driver — workers leaving faster than training
+  pipelines can replace
+• Regional fill rates (62.9%) lag metro (69.7%)
+
+BACKGROUND: ...
+
+FINANCIAL IMPLICATIONS: No direct financial implications.
+
+SUGGESTED TALKING POINTS:
+• The Government recognises healthcare workforce pressures, with 48% of
+  occupations in national shortage (JSA Occupation Shortage List 2025)
+• Retention — not only training — is central; it is the primary driver
+• Regional access is a focus: regional fill rates (62.9%) lag metro (69.7%)
+
+ACTION: For Noting
+
+Contact: [Name] | [Title] | [Phone] | April 2026
+```
+
+## What Just Happened
+
+You started a process with one request and a system of agents completed it — gathering data, then drafting against a documented standard — handing back a finished, formatted brief for you to sign off. The human entered once, at the gate. That is the shift from copilot to agentic, and it's the foundation the rest of this course builds on.
+
+## Suggested 60-Minute Timing
+
+| Time | Activity |
+|---|---|
+| 0–10 | Concept: copilot vs agentic; walk the architecture diagram |
+| 10–18 | Inspect the provided data tool and the brief format document |
+| 18–32 | Build and test the Statistics Agent (import the OpenAPI tool) |
+| 32–46 | Build the Writing Agent (upload the format knowledge base) |
+| 46–55 | Wire the Orchestrator; run the AMA scenario end to end |
+| 55–60 | Review the brief at the gate; debrief |
+
 ## Essential Resources
 
 - [Getting Started Tutorial](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=getting-started-watsonx-orchestrate) - Official IBM documentation
@@ -214,6 +358,12 @@ Once you've mastered no-code agent building with Orchestrate, you're ready to mo
 All the code and resources for this chapter can be found in:
 ```
 1. Orchestrate/
-├── README.md                            # Lab reference guide
-└── 2025 OSL Key Findings Report.pdf     # Knowledge base document
+├── README.md                                 # Lab reference guide
+├── 2025 OSL Key Findings Report.pdf          # Part 1 knowledge base document
+└── Ministerial Brief Agent/                  # Part 2 agentic use case
+    ├── Ministerial Brief Format.docx         # Writing Agent knowledge base (format + rules)
+    ├── healthcare-workforce-openapi.yaml     # Statistics Agent data tool (OpenAPI)
+    ├── healthcare_workforce_tool.py          # No-hosting Python fallback for the tool
+    ├── DPMC Brief Standards.md               # Text version of the brief format
+    └── Agent Prompts.md                      # The three agent prompts and descriptions
 ```

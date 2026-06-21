@@ -1,0 +1,122 @@
+openapi: 3.0.3
+info:
+  title: Healthcare Workforce Data API
+  version: 1.0.0
+  description: >
+    Returns current Australian healthcare workforce employment and shortage
+    figures for the Ministerial Brief Agent. All values are ILLUSTRATIVE mock
+    data for the DEWR Agentic AI Bootcamp — not official ABS/JSA statistics.
+    Shortage types follow the Richardson typology used by Jobs and Skills
+    Australia (Longer Training Gap / Shorter Training Gap / Suitability Gap /
+    Retention Gap).
+servers:
+  - url: https://monadil.github.io/DEWRAgenticAIBootcamp
+    description: >
+      Hosted as a static JSON file on the course GitHub Pages site. The full
+      response is also included as an example below so the spec is self-documenting.
+paths:
+  /api/healthcare-workforce.json:
+    get:
+      operationId: getHealthcareWorkforce
+      summary: Get current healthcare workforce statistics
+      description: >
+        Returns all healthcare roles with monthly employment numbers, the change
+        on the previous month, shortage status and type, plus a sector summary.
+      responses:
+        '200':
+          description: Current healthcare workforce data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthcareWorkforce'
+              example:
+                period: "April 2026"
+                sector: "Healthcare and Social Assistance"
+                source: "JSA Occupation Shortage List 2025 (illustrative mock data)"
+                roles:
+                  - occupation: "Registered Nurses"
+                    employed_this_month: 312400
+                    change_from_last_month: -1200
+                    shortage_status: "National shortage"
+                    shortage_type: "Retention gap"
+                  - occupation: "Aged and Disabled Carers"
+                    employed_this_month: 198600
+                    change_from_last_month: -800
+                    shortage_status: "National shortage"
+                    shortage_type: "Retention gap"
+                  - occupation: "General Practitioners"
+                    employed_this_month: 42300
+                    change_from_last_month: -150
+                    shortage_status: "National shortage"
+                    shortage_type: "Longer training gap"
+                  - occupation: "Mental Health Nurses"
+                    employed_this_month: 28900
+                    change_from_last_month: -280
+                    shortage_status: "National shortage"
+                    shortage_type: "Suitability gap"
+                  - occupation: "Midwives"
+                    employed_this_month: 23800
+                    change_from_last_month: -320
+                    shortage_status: "National shortage"
+                    shortage_type: "Retention gap"
+                  - occupation: "Radiographers"
+                    employed_this_month: 18600
+                    change_from_last_month: -120
+                    shortage_status: "National shortage"
+                    shortage_type: "Shorter training gap"
+                  - occupation: "Physiotherapists"
+                    employed_this_month: 38200
+                    change_from_last_month: 420
+                    shortage_status: "Not in shortage"
+                    shortage_type: null
+                sector_summary:
+                  pct_roles_in_shortage: 48
+                  primary_driver: "Retention gap"
+                  regional_fill_rate: 62.9
+                  metro_fill_rate: 69.7
+components:
+  schemas:
+    HealthcareWorkforce:
+      type: object
+      properties:
+        period:
+          type: string
+          example: "April 2026"
+        sector:
+          type: string
+          example: "Healthcare and Social Assistance"
+        source:
+          type: string
+          description: Citation to use for every figure in a brief.
+          example: "JSA Occupation Shortage List 2025 (illustrative mock data)"
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        sector_summary:
+          $ref: '#/components/schemas/SectorSummary'
+    Role:
+      type: object
+      properties:
+        occupation:
+          type: string
+        employed_this_month:
+          type: integer
+        change_from_last_month:
+          type: integer
+        shortage_status:
+          type: string
+        shortage_type:
+          type: string
+          nullable: true
+    SectorSummary:
+      type: object
+      properties:
+        pct_roles_in_shortage:
+          type: integer
+        primary_driver:
+          type: string
+        regional_fill_rate:
+          type: number
+        metro_fill_rate:
+          type: number
