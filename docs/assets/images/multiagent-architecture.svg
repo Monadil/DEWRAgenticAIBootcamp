@@ -58,7 +58,7 @@
 
   <!-- Human gate -->
   <line x1="400" y1="522" x2="400" y2="558" stroke="#5f6368" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <rect x="270" y="560" width="260" height="46" rx="23" fill="#fff4e5" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="225" y="560" width="350" height="46" rx="23" fill="#fff4e5" stroke="#f59e0b" stroke-width="1.5"/>
   <text x="400" y="588" text-anchor="middle" font-size="13" font-weight="600" fill="#7a4a00">👤 Human reviews &amp; signs off (the only gate)</text>
 
   <!-- Caption -->

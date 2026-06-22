@@ -66,76 +66,80 @@ Build the two sub-agents first, then the Orchestrator that directs them.
 
 ### Exercise A: Statistics Agent
 
-This agent fetches the healthcare workforce data and returns it as cited text.
+This agent fetches the healthcare workforce data and returns it as cited text. Create a new agent named **Statistics Agent** and import `healthcare-workforce-openapi.yaml` as an OpenAPI tool (it exposes a `getHealthcareWorkforce` operation that returns the workforce figures). Then paste its Description and Instructions.
 
-1. Create a new agent named **Statistics Agent**.
-2. **Import the tool:** add `healthcare-workforce-openapi.yaml` as an OpenAPI tool. This gives the agent a `getHealthcareWorkforce` operation that returns the workforce figures.
-3. Paste the **Description**:
-   ```
-   Retrieves current healthcare workforce statistics from the workforce data tool and
-   returns them as citation-ready figures with their source and period. Use it when a brief
-   needs sourced employment and shortage data.
-   ```
-4. Paste the **Instructions**:
-   ```
-   You retrieve healthcare workforce statistics for ministerial briefs. Call the healthcare
-   workforce tool to get the data, then return the figures as citation-ready text — each with
-   its source and period, e.g. "312,400 Registered Nurses employed, April 2026 (JSA
-   Occupation Shortage List 2025)". Return the role figures and the sector summary. Use only
-   the numbers the tool returns; never invent or estimate figures.
-   ```
-5. **Test it:** ask *"Show me healthcare workforce statistics."* You should get the roles and the sector summary, each figure cited.
+**Description**
+
+```
+Retrieves current healthcare workforce statistics from the workforce data tool and
+returns them as citation-ready figures with their source and period. Use it when a brief
+needs sourced employment and shortage data.
+```
+
+**Instructions**
+
+```
+You retrieve healthcare workforce statistics for ministerial briefs. Call the healthcare
+workforce tool to get the data, then return the figures as citation-ready text — each with
+its source and period, e.g. "312,400 Registered Nurses employed, April 2026 (JSA
+Occupation Shortage List 2025)". Return the role figures and the sector summary. Use only
+the numbers the tool returns; never invent or estimate figures.
+```
+
+**Test it:** ask *"Show me healthcare workforce statistics."* You should get the roles and the sector summary, each figure cited.
 
 ### Exercise B: Writing Agent
 
-This agent drafts the brief, grounded in the format knowledge base.
+This agent drafts the brief, grounded in the format knowledge base. Create a new agent named **Writing Agent** and upload `Ministerial Brief Format.docx` as its knowledge base — it defines the required structure and rules (purpose line, key points limit, citations, background length, suggested talking points, and so on). Then paste its Description and Instructions.
 
-1. Create a new agent named **Writing Agent**.
-2. **Upload the knowledge base:** add `Ministerial Brief Format.docx`. It defines the required structure and rules — purpose line, key points limit, citations, background length, suggested talking points, and so on.
-3. Paste the **Description**:
-   ```
-   Drafts ministerial briefs in the Department's standard format from a topic and supplied
-   statistics. Use it to produce a brief.
-   ```
-4. Paste the **Instructions**:
-   ```
-   You draft ministerial briefs for DEWR. Follow the structure and rules in the Ministerial
-   Brief Format document in your knowledge base, and match the clean style of its worked
-   example — do not include any rule labels or word-count notes in the brief.
+**Description**
 
-   Use only the statistics the Statistics Agent provides, and cite each figure as "(JSA
-   Occupation Shortage List 2025, April 2026)". Do not add figures or sources from your own
-   knowledge. If a particular metric is not in the data, leave it out and write the brief
-   from what you have.
-   ```
+```
+Drafts ministerial briefs in the Department's standard format from a topic and supplied
+statistics. Use it to produce a brief.
+```
+
+**Instructions**
+
+```
+You draft ministerial briefs for DEWR. Follow the structure and rules in the Ministerial
+Brief Format document in your knowledge base, and match the clean style of its worked
+example — do not include any rule labels or word-count notes in the brief.
+
+Use only the statistics the Statistics Agent provides, and cite each figure as "(JSA
+Occupation Shortage List 2025, April 2026)". Do not add figures or sources from your own
+knowledge. If a particular metric is not in the data, leave it out and write the brief
+from what you have.
+```
 
 ### Exercise C: Orchestrator Agent
 
-This agent ties it together — it calls the Statistics Agent, then the Writing Agent.
+This agent ties it together — it calls the Statistics Agent, then the Writing Agent. Create a new agent named **Ministerial Brief Agent** (the orchestrator) and add the Statistics Agent and Writing Agent as collaborators it can call. Then paste its Description and Instructions.
 
-1. Create a new agent named **Ministerial Brief Agent** (the orchestrator).
-2. **Add collaborators:** connect the Statistics Agent and the Writing Agent as agents this orchestrator can call.
-3. Paste the **Description**:
-   ```
-   Produces ministerial briefs on workforce topics for the Department of Employment and
-   Workplace Relations. It gathers the relevant statistics, drafts the brief in the
-   Department's format, and returns it for human sign-off. Use it whenever the Minister's
-   office requests a brief.
-   ```
-4. Paste the **Instructions**:
-   ```
-   You coordinate ministerial briefs for the Department of Employment and Workplace
-   Relations. When someone requests a brief:
-   1. Identify the topic and the statistics needed.
-   2. Call the Statistics Agent to get the relevant workforce data with sources.
-   3. Pass the topic and the data to the Writing Agent to draft the brief.
-   4. Return the finished brief for human sign-off.
+**Description**
 
-   Work with whatever data the Statistics Agent returns — do not ask for extra figures it
-   does not provide, and do not refuse a brief because a specific metric is missing. State
-   the source of each figure, never invent statistics, and give no policy or political
-   opinions.
-   ```
+```
+Produces ministerial briefs on workforce topics for the Department of Employment and
+Workplace Relations. It gathers the relevant statistics, drafts the brief in the
+Department's format, and returns it for human sign-off. Use it whenever the Minister's
+office requests a brief.
+```
+
+**Instructions**
+
+```
+You coordinate ministerial briefs for the Department of Employment and Workplace
+Relations. When someone requests a brief:
+1. Identify the topic and the statistics needed.
+2. Call the Statistics Agent to get the relevant workforce data with sources.
+3. Pass the topic and the data to the Writing Agent to draft the brief.
+4. Return the finished brief for human sign-off.
+
+Work with whatever data the Statistics Agent returns — do not ask for extra figures it
+does not provide, and do not refuse a brief because a specific metric is missing. State
+the source of each figure, never invent statistics, and give no policy or political
+opinions.
+```
 
 ### Exercise D: Run It End to End
 
